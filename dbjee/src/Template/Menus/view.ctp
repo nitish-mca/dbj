@@ -5,8 +5,6 @@
         <li><?= $this->Form->postLink(__('Delete Menu'), ['action' => 'delete', $menu->id], ['confirm' => __('Are you sure you want to delete # {0}?', $menu->id)]) ?> </li>
         <li><?= $this->Html->link(__('List Menus'), ['action' => 'index']) ?> </li>
         <li><?= $this->Html->link(__('New Menu'), ['action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Users'), ['controller' => 'Users', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New User'), ['controller' => 'Users', 'action' => 'add']) ?> </li>
     </ul>
 </nav>
 <div class="menus view large-9 medium-8 columns content">
@@ -31,10 +29,6 @@
         <tr>
             <th scope="row"><?= __('Description') ?></th>
             <td><?= h($menu->description) ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('User') ?></th>
-            <td><?= $menu->has('user') ? $this->Html->link($menu->user->name, ['controller' => 'Users', 'action' => 'view', $menu->user->id]) : '' ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Id') ?></th>

@@ -23,7 +23,9 @@
             echo $this->Form->input('with_tax');
             echo $this->Form->input('tax_rate');
             echo $this->Form->input('is_featured');
-            echo $this->Form->input('user_id', ['options' => $users]);
+            echo $this->Form->input('user_id', ['options' => $users, 'empty' => true]);
+            echo $this->Form->input('weight');
+            echo $this->Form->input('status');
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>

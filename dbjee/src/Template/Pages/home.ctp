@@ -297,11 +297,9 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#about" class="page-scroll">About</a></li>
-        <li><a href="#how-it-work" class="page-scroll">Why Us?</a></li>
-        <li><a href="#Prcing" class="page-scroll">Prcing</a></li>
-        <li><a href="#team" class="page-scroll">Team</a></li>
-        <li><a href="#call-reservation" class="page-scroll">Contact</a></li>
+          <?php foreach($menus as $menu):?>
+          <li><a href="<?=$menu->url?>" class="page-scroll" title="<?=$menu->subtitle?>"><?=$menu->title?></a></li>
+          <?php endforeach;?>
       </ul>
     </div>
     <!-- /.navbar-collapse --> 
@@ -407,7 +405,7 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
   </div>
 </div>
 <!-- Prcing Section -->
-<div id="Prcing">
+<div id="pricing">
   <div class="section-title text-center center">
     <div class="overlay">
       <h2>Pricing</h2>
@@ -419,54 +417,20 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
     
     <div class="row">
       <div class="portfolio-items" style="height:353px;">
-        <div class="col-sm-6 col-md-3 col-lg-3 breakfast">
+          <?php foreach($prices as $price):?>
+          <div class="col-sm-6 col-md-3 col-lg-3 breakfast">
           <div class="portfolio-item">
-            <div class="hover-bg"> <a href="#" title="Dish Name" data-lightbox-gallery="gallery1">
+            <div class="hover-bg"> <a href="#" title="<?=$price->title?>" data-lightbox-gallery="gallery1">
               <div class="hover-text">
-                <h5>Wash &amp; Fold</h5>
-                <p style="margin: 0 auto -2px;">59</p>
-                <span class="tax">+tax</span>
-                <span>(per Kg)</span>
+                <h5><?=$price->title?></h5>
+                <p style="margin: 0 auto -2px;"><?=$price->value?></p>
+                <?php echo !empty($price->with_tax) ? '<span class="tax">+tax</span>' : ''; ?>
+                <span>(<?=$price->unit?>)</span>
               </div>
               <img src="img/portfolio/01-small.jpg" class="img-responsive" alt="Project Title"> </a> </div>
           </div>
         </div>
-        <div class="col-sm-6 col-md-3 col-lg-3 dinner">
-          <div class="portfolio-item">
-            <div class="hover-bg"> <a href="#" title="Dish Name" data-lightbox-gallery="gallery1">
-              <div class="hover-text">
-                <h5>Wash &amp; Iron</h5>
-                <p style="margin: 0 auto -2px;">89</p>
-                <span class="tax">+tax</span>
-                <span>(per Kg)</span>
-              </div>
-              <img src="img/portfolio/02-small.jpg" class="img-responsive" alt="Project Title"> </a> </div>
-          </div>
-        </div>
-        <div class="col-sm-6 col-md-3 col-lg-3 breakfast">
-          <div class="portfolio-item">
-            <div class="hover-bg"> <a href="#" title="Dish Name" data-lightbox-gallery="gallery1">
-              <div class="hover-text">
-                 <h5>Premium Laundry</h5>
-                <p style="margin: 0 auto -2px;">149</p>
-                <span class="tax">+tax</span>
-                <span>(per Kg)</span>
-              </div>
-              <img src="img/portfolio/03-small.jpg" class="img-responsive" alt="Project Title"> </a> </div>
-          </div>
-        </div>
-        <div class="col-sm-6 col-md-3 col-lg-3 breakfast">
-          <div class="portfolio-item">
-            <div class="hover-bg"> <a href="#" title="Dish Name" data-lightbox-gallery="gallery1">
-              <div class="hover-text">
-                <h5>Dry Cleaning</h5>
-                <p style="margin: 0 auto -2px;">79</p>
-                <span class="tax">+tax</span>
-                <span>(per shirt)</span>
-              </div>
-              <img src="img/portfolio/04-small.jpg" class="img-responsive" alt="Project Title"> </a> </div>
-          </div>
-        </div>
+        <?php endforeach;?>
         
         
       </div>

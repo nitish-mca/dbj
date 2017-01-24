@@ -19,6 +19,8 @@
                 <th scope="col"><?= $this->Paginator->sort('tax_rate') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('is_featured') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('user_id') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('weight') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('status') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('created') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('modified') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
@@ -35,6 +37,8 @@
                 <td><?= $this->Number->format($price->tax_rate) ?></td>
                 <td><?= h($price->is_featured) ?></td>
                 <td><?= $price->has('user') ? $this->Html->link($price->user->name, ['controller' => 'Users', 'action' => 'view', $price->user->id]) : '' ?></td>
+                <td><?= $this->Number->format($price->weight) ?></td>
+                <td><?= h($price->status) ?></td>
                 <td><?= h($price->created) ?></td>
                 <td><?= h($price->modified) ?></td>
                 <td class="actions">

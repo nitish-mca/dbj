@@ -2,8 +2,6 @@
     <ul class="side-nav">
         <li class="heading"><?= __('Actions') ?></li>
         <li><?= $this->Html->link(__('New Menu'), ['action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Users'), ['controller' => 'Users', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New User'), ['controller' => 'Users', 'action' => 'add']) ?></li>
     </ul>
 </nav>
 <div class="menus index large-9 medium-8 columns content">
@@ -21,7 +19,6 @@
                 <th scope="col"><?= $this->Paginator->sort('weight') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('created') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('modified') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('user_id') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
         </thead>
@@ -38,7 +35,6 @@
                 <td><?= $this->Number->format($menu->weight) ?></td>
                 <td><?= h($menu->created) ?></td>
                 <td><?= h($menu->modified) ?></td>
-                <td><?= $menu->has('user') ? $this->Html->link($menu->user->name, ['controller' => 'Users', 'action' => 'view', $menu->user->id]) : '' ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['action' => 'view', $menu->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['action' => 'edit', $menu->id]) ?>

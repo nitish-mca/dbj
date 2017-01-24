@@ -37,6 +37,10 @@
             <td><?= $this->Number->format($price->tax_rate) ?></td>
         </tr>
         <tr>
+            <th scope="row"><?= __('Weight') ?></th>
+            <td><?= $this->Number->format($price->weight) ?></td>
+        </tr>
+        <tr>
             <th scope="row"><?= __('Created') ?></th>
             <td><?= h($price->created) ?></td>
         </tr>
@@ -51,6 +55,10 @@
         <tr>
             <th scope="row"><?= __('Is Featured') ?></th>
             <td><?= $price->is_featured ? __('Yes') : __('No'); ?></td>
+        </tr>
+        <tr>
+            <th scope="row"><?= __('Status') ?></th>
+            <td><?= $price->status ? __('Yes') : __('No'); ?></td>
         </tr>
     </table>
 </div>
