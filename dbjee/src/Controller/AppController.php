@@ -27,6 +27,7 @@ use Cake\Event\Event;
  */
 class AppController extends Controller
 {
+    public $helpers = ['AkkaCKEditor.CKEditor'];
 
     /**
      * Initialization hook method.

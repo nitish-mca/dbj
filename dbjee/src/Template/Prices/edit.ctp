@@ -1,3 +1,4 @@
+<?php echo $this->CKEditor->loadJs(); ?>
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
     <ul class="side-nav">
         <li class="heading"><?= __('Actions') ?></li>
@@ -22,6 +23,9 @@
             echo $this->Form->input('unit');
             echo $this->Form->input('with_tax');
             echo $this->Form->input('tax_rate');
+            echo $this->Form->input('short_description');
+            echo $this->Form->input('description');
+            echo $this->CKEditor->replace('description');            
             echo $this->Form->input('is_featured');
             echo $this->Form->input('user_id', ['options' => $users, 'empty' => true]);
             echo $this->Form->input('weight');
