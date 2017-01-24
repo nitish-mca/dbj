@@ -40,23 +40,17 @@ class PagesController extends AppController
     public function display()
     {
         $path = func_get_args();
-
-        $count = count($path);
-        if (!$count) {
-            return $this->redirect('/');
-        }
-        if (in_array('..', $path, true) || in_array('.', $path, true)) {
-            throw new ForbiddenException();
-        }
-        $page = $subpage = null;
-
-        if (!empty($path[0])) {
-            $page = $path[0];
-        }
-        if (!empty($path[1])) {
-            $subpage = $path[1];
-        }
-        $this->set(compact('page', 'subpage'));
+        $this->loadModel('Menus');
+        $menus = $this->Menus->find()
+                ->where(['status' => 1])
+                ->order('weight');
+        
+        $this->loadModel('Prices');
+        $prices = $this->Prices->find()
+                ->where(['status' => 1, 'is_featured' => 1])
+                ->limit(4);
+                
+        $this->set(compact('menus', 'prices'));
 
         try {
             $this->render(implode('/', $path));

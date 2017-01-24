@@ -41,8 +41,7 @@ class PricesTable extends Table
         $this->addBehavior('Timestamp');
 
         $this->belongsTo('Users', [
-            'foreignKey' => 'user_id',
-            'joinType' => 'INNER'
+            'foreignKey' => 'user_id'
         ]);
     }
 
@@ -84,6 +83,14 @@ class PricesTable extends Table
             ->boolean('is_featured')
             ->requirePresence('is_featured', 'create')
             ->notEmpty('is_featured');
+
+        $validator
+            ->integer('weight')
+            ->allowEmpty('weight');
+
+        $validator
+            ->boolean('status')
+            ->allowEmpty('status');
 
         return $validator;
     }

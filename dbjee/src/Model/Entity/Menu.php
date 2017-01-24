@@ -16,7 +16,6 @@ use Cake\ORM\Entity;
  * @property int $weight
  * @property \Cake\I18n\Time $created
  * @property \Cake\I18n\Time $modified
- * @property int $user_id
  *
  * @property \App\Model\Entity\User $user
  */

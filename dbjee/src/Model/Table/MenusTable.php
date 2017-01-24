@@ -9,8 +9,6 @@ use Cake\Validation\Validator;
 /**
  * Menus Model
  *
- * @property \Cake\ORM\Association\BelongsTo $Users
- *
  * @method \App\Model\Entity\Menu get($primaryKey, $options = [])
  * @method \App\Model\Entity\Menu newEntity($data = null, array $options = [])
  * @method \App\Model\Entity\Menu[] newEntities(array $data, array $options = [])
@@ -39,11 +37,6 @@ class MenusTable extends Table
         $this->primaryKey('id');
 
         $this->addBehavior('Timestamp');
-
-        $this->belongsTo('Users', [
-            'foreignKey' => 'user_id',
-            'joinType' => 'INNER'
-        ]);
     }
 
     /**
@@ -87,19 +80,5 @@ class MenusTable extends Table
             ->notEmpty('weight');
 
         return $validator;
-    }
-
-    /**
-     * Returns a rules checker object that will be used for validating
-     * application integrity.
-     *
-     * @param \Cake\ORM\RulesChecker $rules The rules object to be modified.
-     * @return \Cake\ORM\RulesChecker
-     */
-    public function buildRules(RulesChecker $rules)
-    {
-        $rules->add($rules->existsIn(['user_id'], 'Users'));
-
-        return $rules;
     }
 }

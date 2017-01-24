@@ -18,9 +18,6 @@ class MenusController extends AppController
      */
     public function index()
     {
-        $this->paginate = [
-            'contain' => ['Users']
-        ];
         $menus = $this->paginate($this->Menus);
 
         $this->set(compact('menus'));
@@ -37,7 +34,7 @@ class MenusController extends AppController
     public function view($id = null)
     {
         $menu = $this->Menus->get($id, [
-            'contain' => ['Users']
+            'contain' => []
         ]);
 
         $this->set('menu', $menu);
@@ -61,8 +58,7 @@ class MenusController extends AppController
             }
             $this->Flash->error(__('The menu could not be saved. Please, try again.'));
         }
-        $users = $this->Menus->Users->find('list', ['limit' => 200]);
-        $this->set(compact('menu', 'users'));
+        $this->set(compact('menu'));
         $this->set('_serialize', ['menu']);
     }
 
@@ -87,8 +83,7 @@ class MenusController extends AppController
             }
             $this->Flash->error(__('The menu could not be saved. Please, try again.'));
         }
-        $users = $this->Menus->Users->find('list', ['limit' => 200]);
-        $this->set(compact('menu', 'users'));
+        $this->set(compact('menu'));
         $this->set('_serialize', ['menu']);
     }
 

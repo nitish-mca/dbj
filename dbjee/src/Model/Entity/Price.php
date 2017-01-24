@@ -14,6 +14,8 @@ use Cake\ORM\Entity;
  * @property float $tax_rate
  * @property bool $is_featured
  * @property int $user_id
+ * @property int $weight
+ * @property bool $status
  * @property \Cake\I18n\Time $created
  * @property \Cake\I18n\Time $modified
  *
