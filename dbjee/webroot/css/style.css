@@ -650,3 +650,20 @@ color: #777;
 #footer a:hover {
 	color: #333;
 }
+#footer .aboutUs {
+    float: left;
+    width: 500px;
+    margin-right: 110px;
+}
+#footer .services, #footer .contact {
+    float: left;
+    width: 230px;
+}
+.innerwrapper {
+    width: 90%;
+    margin: 0 auto;
+    height: auto;
+    overflow: auto;
+    position: relative;
+}
+	

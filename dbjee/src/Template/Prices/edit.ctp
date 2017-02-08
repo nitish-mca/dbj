@@ -26,9 +26,9 @@
             echo $this->Form->input('short_description');
             echo $this->Form->input('description');
             echo $this->CKEditor->replace('description');            
-            echo $this->Form->input('is_featured');
             echo $this->Form->input('user_id', ['options' => $users, 'empty' => true]);
             echo $this->Form->input('weight');
+            echo $this->Form->input('is_featured');
             echo $this->Form->input('status');
         ?>
     </fieldset>
